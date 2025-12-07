@@ -93,7 +93,7 @@ App::App()
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::SB7_MOVING_TRIANGLE);
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::SB7_TESSELATED_TRIANGLE);
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::SB7_GEOM_TRIANGLE);
-	//m_layer = test_app_mgr.GetLayer(TestAppMgr::SB7_CH5_VERTEX_ARRAYS);
+	m_layer = test_app_mgr.GetLayer(TestAppMgr::SB7_CH5_VERTEX_ARRAYS);
 
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::MISC_ANIMATED_MODEL_BASIC);
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::MISC_COMP_GEOM);
@@ -104,11 +104,11 @@ App::App()
 	/*---------------------------------------------------------------------
 	Everything following this uses m_camera2 instead of m_camera => uncomment next line if using
 	-----------------------------------------------------------------------*/
-	if (m_coords)
+	/*if (m_coords)
 	{
 		delete m_coords;
 		m_coords = test_app_mgr.GetLayer(TestAppMgr::COORD_SYS_CAM2);
-	}
+	}*/
 	
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::MISC_DIR_SHADOW_VISUALISED);
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::MISC_CSM_VISUALISED);
@@ -116,7 +116,7 @@ App::App()
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::LGL_PBR_TEXTURED);
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::LGL_IBR_DIFFUSE_IRRADIANCE);
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::LGL_IBR_SPECULAR_SPHERE);
-	m_layer = test_app_mgr.GetLayer(TestAppMgr::LGL_IBR_SPECULAR_TEXTURED);
+	//m_layer = test_app_mgr.GetLayer(TestAppMgr::LGL_IBR_SPECULAR_TEXTURED);
 
 	//theis next one also incudes testing out atan2() function and alignof, alignas keywords
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::MISC_DIFFUSE_IRRADIANCE);

@@ -33,15 +33,28 @@ namespace sb7
 	void MovingTriangle::OnUpdate(double now, double time_step)
 	{
 		glUseProgram(m_shader->GetProgramID());
-		GLfloat attrib[] = { glm::sin(now) * 0.5f,glm::cos(now) * 0.6f, 0.0f, 0.0f };
-		GLfloat color[] = { 1.0, 0.0, 0.0, 1.0 };
-		// Update the value of input attribute 0
 
+		//VBO previously bound for attribute location 0,1 (grid) - need to disable first otherwise glVertexAttrib4fv() gets ignored, since openGL would be expecting a VBO to provide the attribute data instead
+		glDisableVertexAttribArray(0);
+		glDisableVertexAttribArray(1);
+		const GLfloat offset[] = { (float)glm::sin(now) * 0.5f, (float)glm::cos(now) * 0.6f, 0.0f, 0.0f };
+
+	
+		const GLfloat color[] = { (float)sin(now) * 0.5f + 0.5f,
+															(float)cos(now) * 0.5f + 0.5f,
+															0.0f, 1.0f };
+
+		
 		//With this call, the data sent is avaiable to each vertex shader run
-		glVertexAttrib4fv(0, attrib); 
+		glVertexAttrib4fv(0, offset);
+		//glVertexAttrib4f(0, offset[0], offset[1], offset[2], offset[3]);
 		glVertexAttrib4fv(1, color);
 		// Draw one triangle
 		glDrawArrays(GL_TRIANGLES, 0, 3);
+
+		//Re-enable these attributes for the grid
+		glEnableVertexAttribArray(0);
+		glEnableVertexAttribArray(1);
 	}
 
 }

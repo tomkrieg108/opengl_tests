@@ -24,7 +24,8 @@ void main(void)
                                       vec4(-0.25, -0.25, 0.5, 1.0),
                                       vec4(0.25, 0.25, 0.5, 1.0));
 
-      // Index into our array using gl_VertexID - is incremented for each run
+    // Index into our array using gl_VertexID - is incremented for each run
      gl_Position = vertices[gl_VertexID] + a_offset;
+     //gl_Position = vertices[gl_VertexID];
      vs_out.color = a_color;
 }

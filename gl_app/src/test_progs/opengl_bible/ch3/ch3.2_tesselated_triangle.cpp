@@ -21,7 +21,7 @@ namespace sb7
 			TessEval("3.2.tesselated_triangle.tes.glsl").Frag("3.2.tesselated_triangle.fs").Build("Sec3_1_shader");
 		glCreateVertexArrays(1, &VAO);
 		glBindVertexArray(VAO);
-		glPatchParameteri(GL_PATCH_VERTICES, 3); //number of patch points (3 for a triangle!, which is default).  Guaranteed max at least 32
+		glPatchParameteri(GL_PATCH_VERTICES, 3); //number of control points per patch (3 for a triangle!, which is default).  Guaranteed max at least 32
 		m_shader->OutputInfo();
 	}
 

@@ -263,7 +263,7 @@ namespace sb7
     //https://stackoverflow.com/questions/32739297/direct-state-access-with-vertex-buffers
     //sb7 ch5 - buffers - GL v4.5+
 
-#if 0
+#if 1
     //--------------------------------------------------------------------------------------
     // SAO - using multiple buffers.  this works
     //--------------------------------------------------------------------------------------
@@ -276,7 +276,7 @@ namespace sb7
 
     //Load buffer with data. Last param is flags - none set here
     glNamedBufferStorage(buffer[0], sizeof(positions), positions, 0);  
-    //glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    //glBindBuffer(GL_ARRAY_BUFFER, buffer[0]); //not needed
 
     //Make association of the buffer with the VAO
     glVertexArrayVertexBuffer(cubeVAO, 0, buffer[0], 0, sizeof(glm::vec3));
@@ -376,7 +376,7 @@ namespace sb7
 
 #endif
 
-#if 1
+#if 0
     //--------------------------------------------------------------------------------------
    // AOS - interleaved attribute data - this works
    //--------------------------------------------------------------------------------------

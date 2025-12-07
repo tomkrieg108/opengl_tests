@@ -50,7 +50,8 @@ int Window::Initialise()
 #ifdef DEBUG
 	//Allows an error callback function to be used 
 	//https://learnopengl.com/In-Practice/Debugging
-	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
+
+	//glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
 #endif
 
 	m_glfw_window = glfwCreateWindow(m_width, m_height, "OpenGL App", NULL, NULL);
@@ -85,11 +86,12 @@ int Window::Initialise()
 		return 1;
 	}
 
+	//Note - it's going to be better to log error callback to a file than print to console, since console could get flooded with errors, in which case will miss compilation errors at the start. See Copilot 'Troubleshooting openGL Viewport
 #ifdef DEBUG
 	//Setup error callback 
 	//This needs to come after glewInit()
 	//https://learnopengl.com/In-Practice/Debugging
-	int flags;
+	/*int flags;
 	glGetIntegerv(GL_CONTEXT_FLAGS, &flags);
 	if (flags & GL_CONTEXT_FLAG_DEBUG_BIT)
 	{
@@ -97,7 +99,7 @@ int Window::Initialise()
 		glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
 		glDebugMessageCallback(glDebugOutput, nullptr);
 		glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
-	}
+	}*/
 #endif // DEBUG
 
 	//setup OpenGL viewport size (use entire window - use pixels rather than screen coords)
@@ -114,15 +116,35 @@ int Window::Initialise()
 	//glfwSetInputMode(m_glfw_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	//glfwSetInputMode(m_glfw_window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
+	while (glGetError() != GL_NO_ERROR);  // Clear any existing errors.	
+
 	//SB7 cha3 - extensions
-	/*int extenstion_count = 0;
+	int extenstion_count = 0;
 	glGetIntegerv(GL_NUM_EXTENSIONS, &extenstion_count);
 	std::cout << "Extensions suppoted - " << extenstion_count << ": \n";
 	for (int i = 0; i < extenstion_count; i++)
 	{
 		const GLubyte* ext_name = glGetStringi(GL_EXTENSIONS, i);
 		std::cout << (char*)(ext_name) << "\n";
-	}*/
+	}
+
+	
+
+	GLint dims[4];
+	glGetIntegerv(GL_VIEWPORT, dims);
+	
+	std::cout << "FRAMEBUFFER DIMENSIONS:\n";
+	for (int i = 0; i < 4; i++) {
+		std::cout << dims[i] << "\n";
+	}
+
+	GLenum error = glGetError();
+	if (error != GL_NO_ERROR) {
+		printf("Error after glGetIntegerv: 0x%X\n", error);
+	}
+	else {
+		printf("Viewport: x=%d, y=%d, width=%d, height=%d\n", dims[0], dims[1], dims[2], dims[3]);
+	}
 
 	return 0;
 }

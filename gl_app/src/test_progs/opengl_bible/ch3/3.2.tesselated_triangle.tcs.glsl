@@ -2,7 +2,7 @@
 //OpenGL bible sec 3 - tessellation control shader
 //set the level of tesselation, generate data to be sent to the tesselation engine
 //Tesselation breaks a 'patch' (e.g. a quad or large triangle) into smaller triangles, lines or points
-//Runs once per patch?.
+//Runs once per patch.  (e.g. if number of control points is set to 3, vertex shader passes its results here in batches of 3 - vertex shader still runs once for each control point - which is treated as a vertex)
 //Receives it's input as an array with size equal to number of vertices per patch
 //gl_InvocationID is 0 based index to the vertex in the patch
 
