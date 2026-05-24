@@ -32,7 +32,7 @@ App::App()
 
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::LGL_BASIC_LIGHTING_COLOURS);
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::LGL_BASIC_LIGHTING_DIFFUSE);
-	//m_layer = test_app_mgr.GetLayer(TestAppMgr::LGL_BASIC_LIGHTING_SPECULAR);
+	m_layer = test_app_mgr.GetLayer(TestAppMgr::LGL_BASIC_LIGHTING_SPECULAR);
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::LGL_MATERIALS_TEST);
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::LGL_LIGHT_MAP_DIFFUSE);
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::LGL_LIGHT_MAP_SPECULAR);
@@ -93,7 +93,7 @@ App::App()
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::SB7_MOVING_TRIANGLE);
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::SB7_TESSELATED_TRIANGLE);
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::SB7_GEOM_TRIANGLE);
-	m_layer = test_app_mgr.GetLayer(TestAppMgr::SB7_CH5_VERTEX_ARRAYS);
+	//m_layer = test_app_mgr.GetLayer(TestAppMgr::SB7_CH5_VERTEX_ARRAYS);
 
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::MISC_ANIMATED_MODEL_BASIC);
 	//m_layer = test_app_mgr.GetLayer(TestAppMgr::MISC_COMP_GEOM);
